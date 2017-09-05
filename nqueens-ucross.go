@@ -233,10 +233,10 @@ func Wirth(n int) []Solution{
 func uniq(sent []Solution, sol Solution) bool {
 	
 	rows, rowsb :=  make([] int, sol.N, sol.N), make([] int, sol.N, sol.N)
-	for y:=0; y<sol.N-1; y++ {
-		for x:=0; x<sol.N-1; x++ {
+	//for y:=0; y<sol.N-1; y++ {
+		//for x:=0; x<sol.N-1; x++ {
 			copy(rowsb, sol.Rows)
-			rowsb[y], rowsb[x] = rowsb[x], rowsb[y] 
+			//rowsb[y], rowsb[x] = rowsb[x], rowsb[y] 
 			for b := 0; b < sol.N; b++ {
 				for a := 0; a < sol.N; a++ {
 					for r, c := range rowsb { rows[(r+a)%sol.N] = c }
@@ -246,8 +246,8 @@ func uniq(sent []Solution, sol Solution) bool {
 				}
 				rowsb[b], rowsb[(b+1)%sol.N] = rowsb[(b+1)%sol.N], rowsb[b] 
 			}
-		}
-	}
+		//}
+	//}
 	return true
 }
 
